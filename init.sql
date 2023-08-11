@@ -1,13 +1,15 @@
-CREATE TABLE products (
-    product_id SERIAL PRIMARY KEY,
-    product_name VARCHAR(100) NOT NULL,
-    description TEXT,
-    current_price DECIMAL(10, 2) NOT NULL,
-    available_units INT NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE sales_data (
+    id SERIAL PRIMARY KEY,
+    product_name VARCHAR(50),
+    units_sold INT,
+    revenue DECIMAL(10, 2),
+    stock_available INT
 );
 
-insert into products values (1, 'Apple Watch', 'smart watch', 6911, 30, now ());
-insert into products values (2, 'Nintendo Switch', 'game', 130, 196, now ());
-insert into products values (3, 'Amazon Echo Show', 'Amazon echo', 93, 47, now ());
-insert into products values (4, 'Microsoft Xbox', 'game', 2130, 18, now ());
+INSERT INTO sales_data (product_name, units_sold, revenue, stock_available)
+VALUES
+    ('Smartphone A', 150, 1200.00, 30),
+    ('Laptop B', 75, 4500.00, 12),
+    ('Smart TV C', 200, 8000.00, 5),
+    ('Headphones D', 50, 750.00, 40),
+    ('Smartwatch E', 120, 1800.00, 18);
