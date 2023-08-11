@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: postgres:latest
+    image: ricardohsmello/postgres-grafana
     container_name: my-postgres
     environment:
       POSTGRES_DB: grafana_db
@@ -15,7 +15,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     container_name: my-grafana
-    ports:
+    ports: 
       - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
