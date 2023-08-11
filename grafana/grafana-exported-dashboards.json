@@ -1,0 +1,420 @@
+{
+ "annotations": {
+ "list": [
+ {
+ "builtIn": 1,
+ "datasource": {
+ "type": "grafana",
+ "uid": " - Grafana - "
+ },
+ "enable": true,
+ "hide": true,
+ "iconColor": "rgba(0, 211, 255, 1)",
+ "name": "Annotations & Alerts",
+ "type": "dashboard"
+ }
+ ]
+ },
+ "editable": true,
+ "fiscalYearStartMonth": 0,
+ "graphTooltip": 0,
+ "id": 2,
+ "links": [],
+ "liveNow": false,
+ "panels": [
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "fieldConfig": {
+ "defaults": {
+ "color": {
+ "mode": "continuous-GrYlRd"
+ },
+ "custom": {
+ "axisCenteredZero": false,
+ "axisColorMode": "text",
+ "axisLabel": "",
+ "axisPlacement": "auto",
+ "barAlignment": 0,
+ "drawStyle": "line",
+ "fillOpacity": 20,
+ "gradientMode": "scheme",
+ "hideFrom": {
+ "legend": false,
+ "tooltip": false,
+ "viz": false
+ },
+ "lineInterpolation": "smooth",
+ "lineWidth": 3,
+ "pointSize": 5,
+ "scaleDistribution": {
+ "type": "linear"
+ },
+ "showPoints": "auto",
+ "spanNulls": false,
+ "stacking": {
+ "group": "A",
+ "mode": "none"
+ },
+ "thresholdsStyle": {
+ "mode": "off"
+ }
+ },
+ "mappings": [],
+ "thresholds": {
+ "mode": "absolute",
+ "steps": [
+ {
+ "color": "green",
+ "value": null
+ },
+ {
+ "color": "red",
+ "value": 80
+ }
+ ]
+ }
+ },
+ "overrides": []
+ },
+ "gridPos": {
+ "h": 8,
+ "w": 12,
+ "x": 0,
+ "y": 0
+ },
+ "id": 4,
+ "options": {
+ "legend": {
+ "calcs": [],
+ "displayMode": "list",
+ "placement": "bottom",
+ "showLegend": true
+ },
+ "tooltip": {
+ "mode": "single",
+ "sort": "none"
+ }
+ },
+ "targets": [
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "editorMode": "code",
+ "format": "table",
+ "rawQuery": true,
+ "rawSql": "SELECT\r\n sale_date AS time,\r\n SUM(units_sold) AS total_sales\r\nFROM\r\n sales_data\r\nGROUP BY\r\n sale_date\r\n",
+ "refId": "A",
+ "sql": {
+ "columns": [
+ {
+ "parameters": [],
+ "type": "function"
+ }
+ ],
+ "groupBy": [
+ {
+ "property": {
+ "type": "string"
+ },
+ "type": "groupBy"
+ }
+ ],
+ "limit": 50
+ }
+ }
+ ],
+ "title": "Sales Over Time",
+ "type": "timeseries"
+ },
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "fieldConfig": {
+ "defaults": {
+ "color": {
+ "mode": "palette-classic"
+ },
+ "custom": {
+ "hideFrom": {
+ "legend": false,
+ "tooltip": false,
+ "viz": false
+ }
+ },
+ "mappings": []
+ },
+ "overrides": []
+ },
+ "gridPos": {
+ "h": 12,
+ "w": 7,
+ "x": 0,
+ "y": 8
+ },
+ "id": 3,
+ "options": {
+ "displayLabels": [
+ "percent"
+ ],
+ "legend": {
+ "displayMode": "list",
+ "placement": "right",
+ "showLegend": true,
+ "values": []
+ },
+ "pieType": "pie",
+ "reduceOptions": {
+ "calcs": [
+ "lastNotNull"
+ ],
+ "fields": "",
+ "values": true
+ },
+ "tooltip": {
+ "mode": "single",
+ "sort": "none"
+ }
+ },
+ "targets": [
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "editorMode": "code",
+ "format": "table",
+ "rawQuery": true,
+ "rawSql": "SELECT\r\n product_name,\r\n SUM(revenue) AS value\r\nFROM\r\n sales_data\r\nGROUP BY\r\n product_name\r\n",
+ "refId": "A",
+ "sql": {
+ "columns": [
+ {
+ "parameters": [],
+ "type": "function"
+ }
+ ],
+ "groupBy": [
+ {
+ "property": {
+ "type": "string"
+ },
+ "type": "groupBy"
+ }
+ ],
+ "limit": 50
+ }
+ }
+ ],
+ "title": "Distribution of Revenue by Product",
+ "type": "piechart"
+ },
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "fieldConfig": {
+ "defaults": {
+ "color": {
+ "mode": "palette-classic-by-name"
+ },
+ "custom": {
+ "axisCenteredZero": false,
+ "axisColorMode": "text",
+ "axisLabel": "",
+ "axisPlacement": "auto",
+ "fillOpacity": 80,
+ "gradientMode": "none",
+ "hideFrom": {
+ "legend": false,
+ "tooltip": false,
+ "viz": false
+ },
+ "lineWidth": 1,
+ "scaleDistribution": {
+ "type": "linear"
+ },
+ "thresholdsStyle": {
+ "mode": "off"
+ }
+ },
+ "mappings": [],
+ "thresholds": {
+ "mode": "absolute",
+ "steps": [
+ {
+ "color": "purple",
+ "value": null
+ }
+ ]
+ },
+ "unit": "short"
+ },
+ "overrides": []
+ },
+ "gridPos": {
+ "h": 12,
+ "w": 6,
+ "x": 7,
+ "y": 8
+ },
+ "id": 2,
+ "options": {
+ "barRadius": 0,
+ "barWidth": 0.97,
+ "fullHighlight": false,
+ "groupWidth": 0.7,
+ "legend": {
+ "calcs": [],
+ "displayMode": "list",
+ "placement": "right",
+ "showLegend": true
+ },
+ "orientation": "auto",
+ "showValue": "never",
+ "stacking": "none",
+ "tooltip": {
+ "mode": "single",
+ "sort": "none"
+ },
+ "xTickLabelRotation": 0,
+ "xTickLabelSpacing": 0
+ },
+ "targets": [
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "e3b7e358-e8e5–453d-bb0a-df9322a6f1f9"
+ },
+ "editorMode": "code",
+ "format": "table",
+ "rawQuery": true,
+ "rawSql": "SELECT\r\n product_name,\r\n SUM(units_sold) AS value\r\nFROM\r\n sales_data\r\nGROUP BY\r\n product_name\r\n",
+ "refId": "A",
+ "sql": {
+ "columns": [
+ {
+ "parameters": [],
+ "type": "function"
+ }
+ ],
+ "groupBy": [
+ {
+ "property": {
+ "type": "string"
+ },
+ "type": "groupBy"
+ }
+ ],
+ "limit": 50
+ }
+ }
+ ],
+ "title": "Units sold by product",
+ "type": "barchart"
+ },
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "ebffc5ad-9911–4e2b-87f8-c1dc17e2ed40"
+ },
+ "fieldConfig": {
+ "defaults": {
+ "mappings": [],
+ "thresholds": {
+ "mode": "percentage",
+ "steps": [
+ {
+ "color": "green",
+ "value": null
+ },
+ {
+ "color": "orange",
+ "value": 70
+ },
+ {
+ "color": "red",
+ "value": 85
+ }
+ ]
+ }
+ },
+ "overrides": []
+ },
+ "gridPos": {
+ "h": 8,
+ "w": 12,
+ "x": 2,
+ "y": 20
+ },
+ "id": 1,
+ "options": {
+ "orientation": "auto",
+ "reduceOptions": {
+ "calcs": [],
+ "fields": "",
+ "values": true
+ },
+ "showThresholdLabels": false,
+ "showThresholdMarkers": true
+ },
+ "pluginVersion": "10.0.3",
+ "targets": [
+ {
+ "datasource": {
+ "type": "postgres",
+ "uid": "ebffc5ad-9911–4e2b-87f8-c1dc17e2ed40"
+ },
+ "editorMode": "code",
+ "format": "table",
+ "rawQuery": true,
+ "rawSql": " select product_name,\r\n MAX(stock_available) AS value\r\nFROM\r\n sales_data\r\nGROUP BY\r\n product_name",
+ "refId": "A",
+ "sql": {
+ "columns": [
+ {
+ "parameters": [],
+ "type": "function"
+ }
+ ],
+ "groupBy": [
+ {
+ "property": {
+ "type": "string"
+ },
+ "type": "groupBy"
+ }
+ ],
+ "limit": 50
+ }
+ }
+ ],
+ "title": "Total available items",
+ "type": "gauge"
+ }
+ ],
+ "refresh": "",
+ "schemaVersion": 38,
+ "style": "dark",
+ "tags": [],
+ "templating": {
+ "list": []
+ },
+ "time": {
+ "from": "now-8d",
+ "to": "now"
+ },
+ "timepicker": {},
+ "timezone": "",
+ "title": "Sales dashboard Copy",
+ "uid": "be6dc133–8eae-430f-8f13–4f88a8b451e6",
+ "version": 2,
+ "weekStart": ""
+}
