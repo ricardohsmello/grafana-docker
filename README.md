@@ -34,3 +34,49 @@ docker-compose up -d
  - username = admin
  - password = admin
 ```
+
+# Visualization queries
+### Distribution of Revenue by Product
+```
+SELECT
+    product_name,
+    SUM(revenue) AS value
+FROM
+    sales_data
+GROUP BY
+    product_name
+```
+
+### Units sold by product
+
+```
+SELECT
+    product_name,
+    SUM(units_sold) AS value
+FROM
+    sales_data
+GROUP BY
+    product_name
+
+```
+
+### Sales Over Time
+```
+SELECT
+    sale_date AS time,
+    SUM(units_sold) AS total_sales
+FROM
+    sales_data
+GROUP BY
+    sale_date
+```
+
+### Total available Items
+```
+select product_name,
+    MAX(stock_available) AS value
+FROM
+    sales_data
+GROUP BY
+    product_name
+    ```
