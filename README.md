@@ -30,4 +30,7 @@ docker-compose up -d
 ### Accessing grafana
 ```
 - http://localhost:3000
+
+ - username = admin
+ - password = admin
 ```
