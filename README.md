@@ -18,13 +18,13 @@ You can read more on my <b>medium</b> article.
 
 ### Clone repository
 ```
-$ git clone https://https://github.com/ricardohsmello/grafana-docker.git
+git clone https://github.com/ricardohsmello/grafana-docker.git
 ```
 
 ### Starting container
 ```
-$ cd grafana-docker
-$ docker-compose up -d
+cd grafana-docker
+docker-compose up -d
 ```
 
 ### Accessing grafana
