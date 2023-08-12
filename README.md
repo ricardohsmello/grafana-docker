@@ -20,15 +20,14 @@ You can read more on my <b>medium</b> article.
 ```
 $ git clone https://https://github.com/ricardohsmello/grafana-docker.git
 ```
-### Starting container:
 
+### Starting container
 ```
 $ cd grafana-docker
 $ docker-compose up -d
-
 ```
+
 ### Accessing grafana
-
+```
 - http://localhost:3000
-
 ```
