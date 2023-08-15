@@ -61,6 +61,7 @@ GROUP BY
 ```
 
 ### Sales Over Time
+
 ```
 SELECT
     sale_date AS time,
@@ -72,6 +73,7 @@ GROUP BY
 ```
 
 ### Total available Items
+
 ```
 select product_name,
     MAX(stock_available) AS value
