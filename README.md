@@ -70,7 +70,7 @@ FROM
     sales_data
 GROUP BY
     sale_date
-```
+``` 
 
 ### Total available Items
 
